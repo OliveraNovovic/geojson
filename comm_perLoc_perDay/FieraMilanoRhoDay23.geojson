@@ -1,0 +1,6 @@
+{
+"type": "FeatureCollection",
+"name": "myfile",
+"crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
+"features":
+[{"geometry": {"type": "Polygon", "coordinates": [[[9.077724006739643, 45.52165271230778], [9.080733088067856, 45.5216506252921], [9.080730062950414, 45.51953536816905], [9.077721094374011, 45.51953745503164], [9.077724006739643, 45.52165271230778]]]}, "type": "Feature", "id": 7722, "properties": {"cellId": 7723}}]}
