@@ -90,12 +90,14 @@ def main():
     #print("Intersection array length ", len(intersect_area_array))
     #print("Jaccard similarity array length ", len(jaccard_sim_array))
     print("St. dev. of intersection array ", np.std(intersect_area_array))
+    print("Mean of intersection area ", np.mean(intersect_area_array))
     print("St. dev. of Jaccard similarity array ", np.std(jaccard_sim_array))
+    print("Mean of Jaccard similarity ", np.mean(jaccard_sim_array))
     print("St. dev. of intersection array (normalized) ", normalized(intersect_area_array))
     print("St. dev. of Jaccard similarity array (normalized) ", normalized(jaccard_sim_array))
 
     #plot_values(intersect_area_array)
-    plot_values(jaccard_sim_array)
+    #plot_values(jaccard_sim_array)
 
 
 
