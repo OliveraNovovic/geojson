@@ -67,7 +67,7 @@ def main():
                 elems_l2 = line2.split(",")
                 l2_int = [int(e) for e in elems_l2]
 
-                intersec = intersection(l1_int, l2_int)
+                intersec = intersection(l1_int, l2_int) #this is intersection between two consecutive days
                 #print(intersec)
                 uni = union(l1_int, l2_int)
                 #print(uni)
@@ -93,10 +93,11 @@ def main():
     print("Mean of intersection area ", np.mean(intersect_area_array))
     print("St. dev. of Jaccard similarity array ", np.std(jaccard_sim_array))
     print("Mean of Jaccard similarity ", np.mean(jaccard_sim_array))
-    print("St. dev. of intersection array (normalized) ", normalized(intersect_area_array))
-    print("St. dev. of Jaccard similarity array (normalized) ", normalized(jaccard_sim_array))
+    #don't perform normalization for now...
+    #print("St. dev. of intersection array (normalized) ", normalized(intersect_area_array))
+    #print("St. dev. of Jaccard similarity array (normalized) ", normalized(jaccard_sim_array))
 
-    #plot_values(intersect_area_array)
+    plot_values(intersect_area_array)
     #plot_values(jaccard_sim_array)
 
 

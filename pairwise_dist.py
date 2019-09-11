@@ -7,6 +7,24 @@ from shapely.ops import transform
 from functools import partial
 import pyproj
 
+def centroid(file_path):
+    file = open(file_path, 'r')
+    points_array = []
+    lines = file.readlines()
+    for line in lines:
+        el = line.split(" ")
+        #print(el[1][1:], el[2][:-2])
+        lon = float(el[1][1:])
+        lat = float(el[2][:-2])
+        p = (lon, lat)  #shapely uses order lon, lat
+        points_array.append(p)
+
+    file.close()
+    x = [p[0] for p in points_array]
+    y = [p[1] for p in points_array]
+    centr = (sum(y) / len(points_array), sum(x) / len(points_array))
+    return centr
+
 def plot_values(dist_array, avg):
     fig, ax1 = plt.subplots()
                     #start,stop,step
@@ -51,14 +69,20 @@ def convex_hull(points):
     return chull
 
 
+
+
 def main():
-    file = open("duomo_centroids.txt", 'r')
+    file_path = "duomo_centroids.txt"
+    file = open(file_path, 'r')
+    centroid_point = centroid(file_path)
+    print("Centroid point ", centroid_point)
     #Bocconi
     #b = (45.4487489, 9.1909264)
     #Duomo
     #b = (45.4643254, 9.190493)
     #Mean centroid point
-    b = (45.459460134814755, 9.193164901461797)
+    #b = (45.459460134814755, 9.193164901461797)
+    b = centroid_point
     dst_array = []
     points = []
     lines = file.readlines()
@@ -71,6 +95,7 @@ def main():
         point = (lon, lat)  #shapely uses order lon, lat
         dist_array = pw_dist(a, b, dst_array)
         points.append(point)
+    file.close()
 
     avg = np.mean(dist_array)
     diameter = np.max(dist_array)
