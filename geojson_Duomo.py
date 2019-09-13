@@ -41,7 +41,7 @@ def mygeojsonfile(day, comm_file, loc_name):
 
 def main():
     #Milano Vornoi polygons network
-    vornoi = "/home/olivera/Documents/milano-vornoi-network.geojson"
+    vornoi = "/home/olivera/Documents/data/milano-vornoi-network.geojson"
     #/home/olivera/Documents/FPM_vornoi_results
     duomo_clusters = "/home/olivera/Documents/FPM_vornoi_results/clusters_Duomo.txt"
 

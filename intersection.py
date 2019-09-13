@@ -48,7 +48,7 @@ def jaccard(intersec, uni):
 
 def main():
     duomo_clusters_sort = "/home/olivera/Documents/FPM_vornoi_results/clusters_Duomo_sort.txt"
-    vornoi = "/home/olivera/Documents/milano-vornoi-network-EPSG32632.geojson"
+    vornoi = "/home/olivera/Documents/data/milano-vornoi-network-EPSG32632.geojson"
     jaccard_sim_array = []
     intersect_area_array = []
     with open(vornoi, 'r') as f:

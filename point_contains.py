@@ -4,7 +4,7 @@ import json
 
 def area(cid):
     #vornoi polygons with area EPSG 32632
-    vornoi_network_epsg_32632 = "/home/olivera/Documents/milano-vornoi-network-EPSG32632.geojson"
+    vornoi_network_epsg_32632 = "/home/olivera/Documents/data/milano-vornoi-network-EPSG32632.geojson"
 
     with open(vornoi_network_epsg_32632, 'r') as f:
         data = json.load(f)
@@ -18,7 +18,7 @@ def area(cid):
 
 def osm_points_num(poly):
     #osm points with coordinates
-    osm_points = "/home/olivera/Documents/milano-osm_points.geojson"
+    osm_points = "/home/olivera/Documents/data/milano-osm_points.geojson"
     #counter of points
     point_count = 0
     with open(osm_points, 'r') as f:
@@ -34,7 +34,7 @@ def osm_points_num(poly):
 
 def main():
     #vornoi_network no area epsg 4326
-    vornoi_network_4326 = "/home/olivera/Documents/milano-vornoi-network.geojson"
+    vornoi_network_4326 = "/home/olivera/Documents/data/milano-vornoi-network.geojson"
 
     #write results to file
     wfile = open('osm_points_per_vornoi_poly.csv', 'w')

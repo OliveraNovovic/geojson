@@ -6,7 +6,7 @@ import os
 
 def main():
     #Milano Vornoi polygons network
-    vornoi = "/home/olivera/Documents/milano-vornoi-network-EPSG32632.geojson"
+    vornoi = "/home/olivera/Documents/data/milano-vornoi-network-EPSG32632.geojson"
     with open(vornoi, 'r') as f:
         data = json.load(f)
         for feature in data['features']:
