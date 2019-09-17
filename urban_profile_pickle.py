@@ -12,7 +12,7 @@ def testdf():
 def main():
     #testdf()
 
-    pd.set_option('display.max_columns', 999)
+    #pd.set_option('display.max_columns', 999)
 
     attr_table = "/home/olivera/Documents/data/milano-ua-attr-table.xls"
     df = pd.read_excel(attr_table)
@@ -22,7 +22,6 @@ def main():
             land_use_list.append(item)
 
     urban_profile_df = pd.DataFrame(index=range(1, 314), columns=land_use_list)
-    urban_profile_df.fillna(0)
     #urban_profile_df.loc[1, 'Pastures'] = 555
 
     for i in range(1, 314):
@@ -34,14 +33,15 @@ def main():
             cid = int(el[1])
             area = el[2]
             perc = round(float(el[3]), 2)
-            print(perc)
+            #print(perc)
             urban_profile_df.loc[cid, item2012] = perc
 
 
         file.close()
 
-    print(urban_profile_df)
-
+    print(urban_profile_df.fillna(0))
+    nonull = urban_profile_df.fillna(0)
+    nonull.to_pickle("/home/olivera/Documents/data/urban_profile.pkl")
 
 
 
