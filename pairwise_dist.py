@@ -42,7 +42,8 @@ def plot_values(dist_array, avg):
     ax1.set_title('Duomo', fontsize='x-large')
 
     fig.tight_layout()
-    plt.show()
+    #plt.show()
+    plt.savefig("fig1.png")
 
 
 
@@ -72,7 +73,8 @@ def convex_hull(points):
 
 
 def main():
-    file_path = "duomo_centroids.txt"
+    # file_path = "duomo_centroids.txt"
+    file_path = "/home/olivera/Documents/data/vpoly_centroids/vpoly_1.txt"
     file = open(file_path, 'r')
     centroid_point = centroid(file_path)
     print("Centroid point ", centroid_point)
