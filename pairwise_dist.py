@@ -6,6 +6,20 @@ from shapely.geometry import Polygon
 from shapely.ops import transform
 from functools import partial
 import pyproj
+import json
+
+def vpoly_centroid(i):
+    vpoly_centroids = open("/home/olivera/Documents/data/milano-vornoipoly-centroids-EPSG-4326.geojson", 'r')
+    data = json.load(vpoly_centroids)
+    for feature in data['features']:
+        v_cid = feature['properties']['cid']
+        lon = feature['properties']['xcoord']
+        lat = feature['properties']['ycoord']
+        if v_cid == i:
+            print("vpoly central point ", lon, lat)
+            return lat, lon    #geopy uses lat, lon order
+    vpoly_centroids.close()
+
 
 def centroid(file_path):
     file = open(file_path, 'r')
@@ -78,13 +92,16 @@ def main():
     file = open(file_path, 'r')
     centroid_point = centroid(file_path)
     print("Centroid point ", centroid_point)
+    i = 1
+
     #Bocconi
     #b = (45.4487489, 9.1909264)
     #Duomo
     #b = (45.4643254, 9.190493)
     #Mean centroid point
     #b = (45.459460134814755, 9.193164901461797)
-    b = centroid_point
+    #b = centroid_point
+    b = vpoly_centroid(i)
     dst_array = []
     points = []
     lines = file.readlines()
@@ -109,7 +126,7 @@ def main():
     print("Gyration is", gyration)
     print("Convex hull area in km^2 ", chull[0]/1000000)
     print("Convex hull perimeter in km ", chull[1]/1000)
-    plot_values(dist_array, avg)
+    #plot_values(dist_array, avg)
 
 
 if __name__ == '__main__':
